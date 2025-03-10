@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AI 問題服務</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+        header .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            background-color: #3e8e41;
+        }
+        header .nav-bar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        header .nav-bar .menu {
+            display: flex;
+            gap: 20px;
+        }
+        header .nav-bar .menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            padding: 5px 10px;
+        }
+        header .nav-bar .menu a:hover {
+            background-color: #45a049;
+            border-radius: 5px;
+        }
+        header .nav-bar .auth-buttons a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            padding: 5px 15px;
+            background-color: #555;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        header .nav-bar .auth-buttons a:hover {
+            background-color: #333;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .left-column, .right-column {
+            padding: 20px;
+            width: 50%;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .button-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        /* 留言板樣式 */
+        .message-board {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+        }
+
+        .message-board .message {
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .message-board .message p {
+            margin: 0;
+        }
+
+        .message-board .message .author {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-bar">
+        <div class="logo">AI 問題服務</div>
+        <div class="menu">
+            <a href="#">首頁</a>
+            <a href="#">關於我們</a>
+            <a href="#">服務</a>
+            <a href="#">聯絡我們</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="#">登入</a>
+            <a href="#">註冊</a>
+        </div>
+    </div>
+    <h1>AI 問題服務</h1>
+    <p>請選擇按鈕以查看系統資訊。</p>
+</header>
+
+<div class="container">
+    <!-- 左側系統告警區域 -->
+    <div class="left-column">
+        <h2>AI 回覆</h2>
+        <div class="message-board" id="messageBoard">
+            <!-- <div class="message">
+                <p class='author'>AI 助理 (2025-02-27 08:00:00):</p>
+                <p>目前有一則惡意攻擊的 Log 被偵測到，建議您儘快處理。</p>
+            </div>
+            <div class="message">
+                <p class='author'>AI 助理 (2025-02-27 12:00:00):</p>
+                <p>偵測無異常 Log。</p>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- 右側按鈕區域 -->
+    <div class="right-column">
+        <h2>資安事件分析</h2>
+        <div class="button-section">
+            <button onclick="showAlert('惡意攻擊警告', '檢測到潛在的惡意攻擊，請檢查系統安全設定。')">檢查、分析惡意攻擊</button>
+            <button onclick="showAlert('行銷分析', '目前產品銷售數量均維持正常水平。')">分析網站商品點擊率</button>
+            <!-- <button onclick="showAlert('惡意攻擊警告', '檢測到潛在的惡意攻擊，請檢查系統安全設定。')">檢查惡意攻擊</button>
+            <button onclick="showAlert('系統狀態', '目前系統運行正常，無異常狀況。')">檢查系統狀態</button>
+            <button onclick="showAlert('日誌更新', '最新日誌已更新，請查看詳細報告。')">查看日誌</button>
+            <button onclick="showAlert('維護通知', '系統將於今晚進行例行維護，請做好準備。')">維護資訊</button> -->
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 AI 問題服務。版權所有。</p>
+</footer>
+
+<script>
+    // 顯示告警訊息到左邊的系統告警區域
+    function showAlert(title, content) {
+        let messageBoard = document.getElementById("messageBoard");
+        let newMessage = document.createElement("div");
+        newMessage.classList.add("message");
+        
+        // 獲取當前時間
+        let currentTime = new Date().toLocaleString('zh-TW', { 
+            year: 'numeric', 
+            month: '2-digit', 
+            day: '2-digit', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+        });
+        
+        newMessage.innerHTML = `<p class='author'>AI 助理 (${currentTime})：</p><p>${title} - ${content}</p>`;
+        messageBoard.appendChild(newMessage);
+        
+        // 自動滾動到最新訊息
+        messageBoard.scrollTop = messageBoard.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
